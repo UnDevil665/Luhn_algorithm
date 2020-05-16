@@ -8,18 +8,12 @@ def luhnAlg(number: str):
     number = number[::-1]
     summ = 0
 
-    if len(number) % 2 == 0:
-        for i in range(0, len(number)):
-            if ((i + 1) % 2 == 0) & (i != 0):
-                summ = summ + ((int(number[i]) * 2) % 10) + ((int(number[i]) * 2) // 10)
-            else:
-                summ += int(number[i])
-    else:
-        for i in range(0, len(number)):
-            if ((i + 1) % 2 == 0) & (i != 0):
-                summ += int(number[i])
-            else:
-                summ = summ + ((int(number[i]) * 2) % 10) + ((int(number[i]) * 2) // 10)
+
+    for i in range(0, len(number)):
+        if ((i + 1) % 2 == 0) & (i != 0):
+            summ = summ + ((int(number[i]) * 2) % 10) + ((int(number[i]) * 2) // 10)
+        else:
+            summ += int(number[i])
 
     if summ % 10 == 0:
         return 'Valid'
